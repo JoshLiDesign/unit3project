@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>1Community</title>
+		<!-- Compiled and minified CSS -->
+	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	    <!-- Compiled and minified JavaScript -->
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	</head>
+
+	<body>
+		  <nav>
+		    <div class="teal lighten-2 nav-wrapper">
+		      <a href="#" class="brand-logo center"><i class="material-icons">filter_1</i>Community</a>
+		      <ul id="nav-mobile" class="left hide-on-med-and-down">
+		      </ul>
+		    </div>
+		  </nav>
+
+		  <div style="margin-left: 20px; margin-right: 20px; margin-top: 20px">
+			  <div class="chips chips-placeholder">Tags: </div>
+
+			  <div class="row">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s10">
+                            <input id="title" type="text" class="validate" required="" aria-required="true">
+                            <label for="title">Title</label>
+                            <span class="helper-text" data-error="cannot be empty" data-success="">required</span>
+                        </div>
+                </form>
+
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s10">
+                            <input id="location" type="text" class="validate" required="" aria-required="true">
+                            <label for="location">Location</label>
+                            <span class="helper-text" data-error="cannot be empty" data-success="">required</span>
+                        </div>
+                </form>
+
+                <form class="col s12">
+                        <div class="row">
+                            <div class="input-field col s10">
+                                <textarea id="comment" class="materialize-textarea"></textarea>
+                                <label for="comment">Description (expandable)</label>
+                            </div>
+                        </div>
+                    </form>
+			    </div>
+			</form>
+		</div>
+		  </div>
+				<form action="#">
+			    <div class="file-field input-field">
+			      <div class="btn">
+			        <span>Image</span>
+			        <input type="file">
+			      </div>
+			      <div class="file-path-wrapper">
+			        <input class="file-path validate" type="text">
+			      </div>
+			    </div>
+			  </form>
+
+			<div class="row">
+			  <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s10">
+                            <input id="link" type="text" class="validate" required="" aria-required="true">
+                            <label for="link">Link to Fundraiser</label>
+                            <span class="helper-text" data-error="cannot be empty" data-success="">required</span>
+                        </div>
+                </form>
+            </div>
+</div>
+             <div style="position: absolute; top: 21%; width: 16%; left:83%">
+			    <div class="col s12 m5">
+			      <div class="card-panel teal">
+			        <span class="white-text">Here are some hints about how to highlight the most important aspects of your campaign:
+			        	<br>1. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+			        	<br>2.Lorem ipsum dolor sit amet, consectetur 
+			        </span>
+			      </div>
+			    </div>
+			  </div>
+
+
+  <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+    <i class="material-icons right">send</i>
+  </button>
+
+			  <div class="fixed-action-btn">
+			  <a class="btn-floating btn-large red">
+			    <i class="large material-icons">mode_edit</i>
+			  </a>
+			  <ul>
+			    <li><a class="btn-floating yellow darken-1" href="upload.html" target="_blank"><i class="material-icons">file_upload</i></a></li>
+			    <li><a class="btn-floating green"><i class="material-icons">person_outline</i></a></li>
+			  </ul>
+			</div>
+
+		<!--JavaScript at end of body for optimized loading-->
+      	<script type="text/javascript" src="js/materialize.min.js"></script>
+      	<script>
+      		M.AutoInit();
+      	</script>
+	</body>
+</html>
