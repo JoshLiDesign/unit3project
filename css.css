@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200&display=swap');
+body, html {
+  height: 100%;
+}
+
+p {
+  font-family: 'Manrope', sans-serif;
+  color: white; 
+}
+
+.parallax {
+    background-image: url("bg.jpg");
+
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    position:relative;
+    height: 100%;
+}
+
+@media only screen and (max-device-width: 1024px) {
+    .parallax {
+        background-attachment: scroll;
+    }
+}
+
+.logo {
+  position: absolute;
+  top: 40%;
+  width: 150px;
+  height: 150px;
+}
+
+.typewrite {
+  position: absolute;
+  top: 80%;
+  left: 60%;
+  color: #ffdaa6; 
+  text-decoration: none;
+  font-family: 'Manrope', sans-serif;
+  font-size: 30px;
+}
+
+.typewritebef {
+  position: absolute;
+  top: 76.3%;
+  left: 50%;
+  color: white;
+  font-size: 30px;
+}
+
+.shadow {
+  opacity: 0.2; 
+  position: absolute;
+  background-color: black; 
+  height: 100px; 
+  top: 36%; 
+  width: 85%;
+  left: 8%;
+}
+
+.searchfir {
+  position: absolute;
+  font-weight: bold;
+  top: 30%;
+  left: 10%;
+  font-size: 50px;
+}
+
+.input-field input:focus + label {
+   color: white !important;
+ }
+
+.input-field input[type=text]:focus {
+     border-bottom: 1px solid white !important;
+     box-shadow: 0 1px 0 0 white !important;
+ }
+
+.searchsec {
+  position: absolute;
+  font-weight: bold;
+  top: 30%;
+  left: 30%;
+  font-size: 50px;
+}
