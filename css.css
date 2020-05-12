@@ -45,8 +45,8 @@ p {
 
 .typewritebef {
   position: absolute;
-  top: 76.7%;
-  left: 51%;
+  top: 76.3%;
+  left: 50%;
   color: white;
   font-size: 30px;
 }
@@ -101,6 +101,10 @@ p {
   left: 4%;
   font-family: 'Manrope', sans-serif;
   letter-spacing: 1px;
+}
+
+.box:hover{
+  cursor: pointer;
 }
 
 .boxbackground{
