@@ -32,7 +32,7 @@
                <div class="step-content">
                   <div class="row">
                      <div class='form-field col s12'>
-                        <p style="font-size: 24px">Title of Your Fundraiser</p>
+                        <p style="font-size: 24px">Campaign Title</p>
                         <div style="line-height: 2;font-size: 14px">
 	                        <span style="margin-left: 3%">1) Be inspired by other successful campaign titles; </span><span>e.g. the "Braden's hearing aid awareness" Campaign</span><br>
 	                        <span style="margin-left: 3%">2) Make the title specific to your cause</span><br>
@@ -56,11 +56,49 @@
                <div class="step-content">
                   <div class="row">
                      <div class='form-field col s12'>
-                        <p>Step with no custom validation</p>
-                        <div class="input-field col s12">
-                           <input type="text" name="textfield" class="required validate"/>
-                           <label for="textfield">Random textfield</label>
+                     	<div style="float: left">
+	                        <p style="font-size: 24px">Location</p>
+	                        <div style="font-size: 12px">What's your current/closest city?</div>
+                    	</div>
+                        <div class="input-field col" style="float: left; margin-top: 3%; margin-left: 6%; width: 75%">
+                           <input type="text" name="textfield" class="required validate" id="location"/>
+                           <label for="textfield">e.g Toronto, New York</label>
                         </div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class='form-field col s12'>
+                     	<div style="float: left">
+	                        <p style="font-size: 24px">Fundraiser Link</p>
+	                        <div style="font-size: 12px">Where's your fundraiser hosted?</div>
+                    	</div>
+                        <div class="input-field col" style="float: left; margin-top: 3%; margin-left: 6.4%; width: 75%">
+                           <input type="text" name="textfield" class="required validate" id="link"/>
+                           <label for="textfield">e.g. GoFundMe, Fundly, etc</label>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="step-actions">
+                     <button class="waves-effect waves-dark btn next-step" onclick="getTitle()">CONTINUE</button>
+                     <button class="waves-effect waves-dark btn-flat previous-step">BACK</button>
+                  </div>
+                  <div class="row">
+                     <div class='form-field col s12'>
+                     	<div style="float: left">
+	                        <p style="font-size: 24px">Photo</p>
+	                        <div style="font-size: 12px">What sums up your campaign in a photo?</div>
+                    	</div>
+                        <form action="#">
+						    <div class="file-field input-field" style="margin-left: 21.3%">
+						      <div class="btn" style="height: 40px">
+						        <span>File</span>
+						        <input type="file" accept="image/png, image/jpeg" class="required validate">
+						      </div>
+						      <div class="file-path-wrapper">
+						        <input class="file-path validate" type="text" accept="image/png, image/jpeg">
+						      </div>
+						  </form>
+						</div>
                      </div>
                   </div>
                   <div class="step-actions">
@@ -89,7 +127,7 @@
       </form>
    </div>
    <script>
-   	
+
 	   	function getTitle(){
 	   		console.log(document.getElementById("title").value);
 	   }
