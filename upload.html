@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <head>
+	<title>1Community</title>
    <!-- Materializecss compiled and minified CSS -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
    <!--Import Google Icon Font-->
@@ -33,10 +34,10 @@
                   <div class="row">
                      <div class='form-field col s12'>
                         <p style="font-size: 24px">Campaign Title</p>
-                        <div style="line-height: 2;font-size: 14px">
-	                        <span style="margin-left: 3%">1) Be inspired by other successful campaign titles; </span><span>e.g. the "Braden's hearing aid awareness" Campaign</span><br>
-	                        <span style="margin-left: 3%">2) Make the title specific to your cause</span><br>
-	                        <span style="margin-left: 3%">3) Select a simple name that strikes emotionally; </span><span>e.g. "A Better Home for Danny"</span><br>
+                        <div style="line-height: 2; font-size: 13px">
+	                        <span style="margin-left: 3%; color: red">1) Be inspired by other successful campaign titles; </span><span>the "Braden's Hearing Aid Awareness" campaign is one that is worth looking into</span><br>
+	                        <span style="margin-left: 3%; color: red">2) Make the title specific to your cause. </span><span>This is something that your description will base itself off of later on</span><br>
+	                        <span style="margin-left: 3%; color: red;">3) Select a simple name that strikes emotionally; </span><span>something like "A Better Home for Danny", would, for example, be much better than "Help Me Afford A Two-Storied Retirement Housing" because more people <span style="margin-left: 3%">will relate to your issue</span></span><br>
                     	</div>
                         <div class="input-field col s12">
                            <input type="text" name="textfield" class="required validate" id="title"/>
@@ -112,6 +113,54 @@
                <div class="step-title waves-effect waves-dark">Step 3</div>
                <div class="step-content">
                   <div class="row">
+                     <div class='form-field col s12'>
+                        <p style="font-size: 18px">Description</p>
+                        <p style="font-size: 13px">Organizations</p>
+                        <div style="line-height: 1.4;font-size: 12px">
+	                        <span style="margin-left: 3%; color: red">1) Don’t make assumptions. </span><span>Your best bet is to start from square one and not overly rely on long-term contributors</span><br>
+	                        <span style="margin-left: 3%; color: red">2) Host Virtual meetings with your major donors, </span><span>especially hospital benefactors (e.g. family funds) or equipment suppliers</span><br>
+	                        
+                    	</div>
+                    	<p style="font-size: 13px">Individuals</p>
+                        <div style="line-height: 1.4;font-size: 12px">
+	                        <span style="margin-left: 3%; color: red">1) Make a unique case. </span><span>Millions are suffering from this crisis right now; why is your situation unique, and why should people help?</span><br>
+	                        <span style="margin-left: 3%; color: red">2) Ask for what you need. </span><span>Everyone is going through a tough time right now; tell them what you need upfront so they can make informed decisions about the size of their donations</span><br>
+                    	</div>
+                        <div class="input-field col s12">
+                           <input type="text" name="textfield" class="required validate" id="description"/>
+                           <label for="textfield">a unique description to your cause</label>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="step-actions">
+                     <button class="waves-effect waves-dark btn next-step">CONTINUE</button>
+                     <button class="waves-effect waves-dark btn-flat previous-step">BACK</button>
+                  </div>
+               </div>
+            </li>
+
+            <li class="step">
+               <div class="step-title waves-effect waves-dark">Step 4</div>
+               <div class="step-content">
+                  <div class="row">
+                     <div class='form-field col s12'>
+                        <p style="font-size: 24px">Tags</p>
+                        <div style="line-height: 2;font-size: 14px">
+	                        <span style="margin-left: 3%">These tags help users understand your cause at a glance, so make them as simple and unique as you can! You might want to consider elements such as occupation, family-size and cultural <span style="margin-left: 3%">background - or anything that is concise but also stands out in your opinion</span></span><br>
+
+                     </div>
+                  </div>
+                  <div class="step-actions">
+                     <button class="waves-effect waves-dark btn next-step">CONTINUE</button>
+                     <button class="waves-effect waves-dark btn-flat previous-step">BACK</button>
+                  </div>
+               </div>
+            </li>
+
+            <li class="step">
+               <div class="step-title waves-effect waves-dark">Submit</div>
+               <div class="step-content">
+                  <div class="row">
                      <div class='form-field'>
                         <p>Submit phase</p>
                      </div>
@@ -126,8 +175,8 @@
          </ul>
       </form>
    </div>
-   <script>
 
+   <script>
 	   	function getTitle(){
 	   		console.log(document.getElementById("title").value);
 	   }
@@ -135,8 +184,6 @@
 		$(document).ready(function() {
 		    $('.stepper').activateStepper();
 		})
-
-
 
 		/* Materializecss Stepper - By Kinark 2016
 		// https://github.com/Kinark/Materialize-stepper
