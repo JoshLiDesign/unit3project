@@ -10,8 +10,9 @@
    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200&display=swap" rel="stylesheet">
-   <!-- Materializecss compiled and minified JavaScript -->
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+	<script src="https://www.gstatic.com/firebasejs/5.7.3/firebase.js"></script>
    <!-- jQueryValidation Plugin -->
    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js"></script>
 
@@ -46,7 +47,7 @@
                      </div>
                   </div>
                   <div class="step-actions">
-                     <button class="waves-effect waves-dark btn next-step" onclick="getTitle()">CONTINUE</button>
+                     <button class="waves-effect waves-dark btn next-step">CONTINUE</button>
                      <button class="waves-effect waves-dark btn-flat previous-step">BACK</button>
                   </div>
                </div>
@@ -86,14 +87,14 @@
                   <div class="row">
                      <div class='form-field col s12'>
                      	<div style="float: left">
-	                        <p style="font-size: 24px">Photo</p>
-	                        <div style="font-size: 12px">What sums up your campaign in a photo?</div>
+	                        <p style="font-size: 24px">Image</p>
+	                        <div style="font-size: 12px">What sums up your campaign in an image?</div>
                     	</div>
                         <form action="#">
 						    <div class="file-field input-field" style="margin-left: 21.3%">
 						      <div class="btn" style="height: 40px">
-						        <span>File</span>
-						        <input type="file" accept="image/png, image/jpeg" class="required validate">
+						        <span>Upload</span>
+						        <input type="file" accept="image/png, image/jpeg" class="required validate" id="image">
 						      </div>
 						      <div class="file-path-wrapper">
 						        <input class="file-path validate" type="text" accept="image/png, image/jpeg">
@@ -140,33 +141,15 @@
             </li>
 
             <li class="step">
-               <div class="step-title waves-effect waves-dark">Step 4</div>
-               <div class="step-content">
-                  <div class="row">
-                     <div class='form-field col s12'>
-                        <p style="font-size: 24px">Tags</p>
-                        <div style="line-height: 2;font-size: 14px">
-	                        <span style="margin-left: 3%">These tags help users understand your cause at a glance, so make them as simple and unique as you can! You might want to consider elements such as occupation, family-size and cultural <span style="margin-left: 3%">background - or anything that is concise but also stands out in your opinion</span></span><br>
-
-                     </div>
-                  </div>
-                  <div class="step-actions">
-                     <button class="waves-effect waves-dark btn next-step">CONTINUE</button>
-                     <button class="waves-effect waves-dark btn-flat previous-step">BACK</button>
-                  </div>
-               </div>
-            </li>
-
-            <li class="step">
                <div class="step-title waves-effect waves-dark">Submit</div>
                <div class="step-content">
                   <div class="row">
                      <div class='form-field'>
-                        <p>Submit phase</p>
+                        <p>All done!</p>
                      </div>
                   </div>
                   <div class="step-actions">
-                     <input type="submit" class="waves-effect waves-dark btn next-step" value="SUBMIT"/>
+                     <input type="submit" class="waves-effect waves-dark btn next-step" value="SUBMIT" onclick="submitall()"/>
                      <button class="waves-effect waves-dark btn-flat previous-step">BACK</button>
                   </div>
                </div>
@@ -175,10 +158,37 @@
          </ul>
       </form>
    </div>
-
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
    <script>
-	   	function getTitle(){
-	   		console.log(document.getElementById("title").value);
+   		var firebaseConfig = {
+                piKey: "AIzaSyCcw96huCdBfDqlxOADqtJbPtQbOlAwquA",
+			    authDomain: "unit3project.firebaseapp.com",
+			    databaseURL: "https://unit3project.firebaseio.com",
+			    projectId: "unit3project",
+			    storageBucket: "unit3project.appspot.com",
+			    messagingSenderId: "420038856149",
+			    appId: "1:420038856149:web:230f6e4196b949fa29815c",
+			    measurementId: "G-TJ980KD3NZ"
+            };
+            firebase.initializeApp(firebaseConfig);
+	   	function submitall(){
+	   		M.toast({html: 'submitted!'});
+	   		
+	   		var titleval = document.getElementById("title").value;
+	   		var locationval = document.getElementById("location").value;
+	   		var linkval = document.getElementById("link").value;
+	   		var imageval = document.getElementById("image").value;
+	   		var descriptionval = document.getElementById("description").value;
+
+	   		var firstid = firebase.database().ref('fundraiser').push({
+                title: titleval,
+                location: locationval,
+                link: linkval,
+                image: imageval,
+                description: descriptionval
+            }).catch(function(error) {
+                alert("Fundraiser could not be sent" + error);
+            });
 	   }
 
 		$(document).ready(function() {
