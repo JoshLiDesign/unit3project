@@ -101,9 +101,10 @@
 				    var jsonstor = JSON.parse(this.responseText);
 				    var temp = jsonstor['results']['0']['locations']['0']['latLng'];
 
-				    var lat = temp['lat'];
-				    var lng = temp['lng'];
-				    console.log(lat+" "+lng);
+				    var latstor = temp['lat'];
+				    var lngstor = temp['lng'];
+				    localStorage.setItem( 'lat', latstor);
+				    localStorage.setItem( 'lng', lngstor);
 				  }
 				};
 				getlatlong.open("GET", "https://open.mapquestapi.com/geocoding/v1/address?key=h020xslJgKrK3ywDJHnDg6Zs7gQWiVWP&location="+loc, true);
