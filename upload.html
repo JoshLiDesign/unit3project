@@ -149,7 +149,7 @@
                      </div>
                   </div>
                   <div class="step-actions">
-                     <input type="submit" class="waves-effect waves-dark btn next-step" value="SUBMIT" onclick="submitall()"/>
+                     <a class="waves-effect waves-dark btn" onclick="submitall()"/>Submit</a>
                      <button class="waves-effect waves-dark btn-flat previous-step">BACK</button>
                   </div>
                </div>
@@ -179,16 +179,32 @@
 	   		var linkval = document.getElementById("link").value;
 	   		var imageval = document.getElementById("image").value;
 	   		var descriptionval = document.getElementById("description").value;
+	   		var lat = 1.1111;
+	   		var lng = 1.1111;
 
-	   		var firstid = firebase.database().ref('fundraiser').push({
-                title: titleval,
-                location: locationval,
-                link: linkval,
-                image: imageval,
-                description: descriptionval
-            }).catch(function(error) {
-                alert("Fundraiser could not be sent" + error);
-            });
+	   		var getlatlong = new XMLHttpRequest();
+			getlatlong.onreadystatechange = function() {
+			  if (this.readyState == 4 && this.status == 200) {
+			    var jsonstor = JSON.parse(this.responseText);
+			    var temp = jsonstor['results']['0']['locations']['0']['latLng'];
+
+			    lat = temp['lat'];
+			    lng = temp['lng'];
+				var firstid = firebase.database().ref('fundraiser').push({
+	                title: titleval,
+	                location: locationval,
+	                link: linkval,
+	                image: imageval,
+	                description: descriptionval,
+	                latitude: lat,
+	                longitude: lng
+	            }).catch(function(error) {
+	                alert("Fundraiser could not be sent" + error);
+	            });
+			  }
+			};
+			getlatlong.open("GET", "https://open.mapquestapi.com/geocoding/v1/address?key=h020xslJgKrK3ywDJHnDg6Zs7gQWiVWP&location="+locationval, true);
+			getlatlong.send();
 	   }
 
 		$(document).ready(function() {
