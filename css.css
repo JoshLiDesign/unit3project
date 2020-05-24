@@ -116,3 +116,10 @@ p {
   height: 540px;
   width: 1200px;
 }
+
+.style1{
+  display: inline-block; 
+  margin-top: 5%; 
+  margin-left: 0.5%; 
+  font-size: 24px
+}
