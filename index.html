@@ -9,6 +9,7 @@
 	    <link rel="stylesheet" type="text/css" href="css.css">
 	    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
 		<link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+		<script src="https://www.gstatic.com/firebasejs/5.7.3/firebase.js"></script>
 	    <!-- Compiled and minified JavaScript -->
 	    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 	</head>
@@ -78,6 +79,7 @@
 		  </div>
 		  </div>
       	<script type="text/javascript" src="js.js"></script>
+
       	<script>
       		M.AutoInit();
 
@@ -94,6 +96,8 @@
 			  if (event.keyCode === 13) {
 			  	var rad = document.getElementById("radius").value;
 			    var loc = searchlis.value;
+			    localStorage.setItem( 'rad', rad);
+			    localStorage.setItem( 'loc', loc);
 
 			    var getlatlong = new XMLHttpRequest();
 				getlatlong.onreadystatechange = function() {
