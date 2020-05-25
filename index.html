@@ -1,121 +1,124 @@
 <!DOCTYPE html>
 <html>
-
-	<head>
-		<title>1Community</title>
-		<!-- Compiled and minified CSS -->
-	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-	    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	    <link rel="stylesheet" type="text/css" href="css.css">
-	    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
-		<link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
-		<script src="https://www.gstatic.com/firebasejs/5.7.3/firebase.js"></script>
-	    <!-- Compiled and minified JavaScript -->
-	    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-	</head>
-
-	<body>
-			<!--Parallax at top of page-->
-			<div class="parallax">
-				<!-- logo -->
-				<center>
-					<img class="logo" src="logo.png" alt="1Community logo">
-			  	</center>
-
-			  	<!--Typewriter effect-->
-				<p class="typewritebef">Donate to</p>
-				<div>
-				  <a href="" class="typewrite" data-period="2000" data-type='[ "Your Neighbour Tyler", "Your Garage Pal Jace", "Your Pilates Mentor Tiffany", "Your Golf Instructor Joy", "Your Beer Buddy Ethan" ]'><span class="wrap"></span></a>
-				</div>
-
-				<!--Search bar-->
-			  	<div class="shadow"></div>
-				<p class="searchfir">Search</p>
-				<div class="row" style="position: absolute; top: 36%; left: 21%">
-			        <div class="col s12">
-				        <div class="input-field col s6">
-				          <input placeholder="XX" type="text" style="color: white; font-size: 48px; font-family: 'Manrope', sans-serif; color:#fff; width: 80px" id="radius">
-				        </div>
-			        </div>
-			      </div>
-			      <p class="searchsec">Miles Around</p>
-			      <div class="row" style="position: absolute; top: 36%; left: 51%">
-			        <div class="col s12">
-				        <div class="input-field col s6">
-				          <input placeholder="Name OR Address" type="text" style="color: white; font-size: 48px; font-family: 'Manrope', sans-serif; color:#fff; width: 560px" id="searchbar">
-				        </div>
-			        </div>
-		      	</div>
-
-		      	<!-- ADD ACCESSIBLITY OPTIONS -->
-		      	<div class="box boxbackground" style="top: 84%"><center></center></div>
-		      	<a onclick="doGrayscale()"><div class="box" style="top: 84%"><center>GrayScale</center></div><a>
-		      	<div class="box boxbackground" style="top: 92%"><center></center></div>
-		      	<a href="https://chrome.google.com/webstore/detail/natural-reader-text-to-sp/kohfgcgbkjodfcfkcackpagifgbcmimk/related?hl=en" target="_blank"><div class="box" style="top: 92%"><center>Text-to-Speech</center></div></a>
-			</div>
-
-			<!--Inspirational stories-->
-	      <p class="text1"> Stories that inspired us <span style="color: red"> today</span></p>
-
-	      <!--Story 1-->
-		  <div style="margin-top: 2%; background-color: #fffef0; padding-top: 2%; height: 400px">
-		  	<div style="margin-left: 14%">
-		  	<div style="float: left"><img src="photos/story1.jpg" height="300"></div>
-		  	<div style="margin-left: 48%; margin-right: 14%; line-height: 1.8">
-		  		<p style="color: black; font-size: 30px; font-weight: bold"> Paid Sick Leave - Ottawa </p>
-		  		<p style="color: black; font-size: 16px"> Ottawa construction workers Danny and Frank work at a company without sick leave pays. Now they are worried that they have no cushion to fall back on in case the flu - or worse still the virus - forces them to stay home. 1Community helped promote their campaign to raise over $6,000 from their local community, ensuring that their livelihoods aren't at stake because they are practicing good social distancing for the rest of us.</p>
-		  	</div>
-		  </div>
-		  </div>
-
-		  <!--Story 2-->
-		  <div style="margin-top: 1%; padding-top: 2%; height: 400px">
-		  	<div style="margin-left: 14%">
-		  	<div style="float: left; line-height: 1.8; width: 40%; padding-right: 3%">
-		  		<p style="color: black; font-size: 30px; font-weight: bold"> Better Respirators - Shanghai </p>
-		  		<p style="color: black; font-size: 16px"> Health workers in Shanghai face a severe shortage of respirators as the number of coronavirus cases skyrocket. With the help of residents on both the west and east side of the metropolitan, healthworkers raised ¥40,000 through 1Community and saw a significant boost in local medical supplies. On top of respirators, they also used this fund to acquire surgical masks in smaller quantities.</p>
-		  	</div>
-		  	<div style="float: left; width: 50%; margin-top: 1.2%; padding-left: 3%"><img src="photos/story2.jpg" height="300"></div>
-		  </div>
-		  </div>
-      	<script type="text/javascript" src="js.js"></script>
-
-      	<script>
-      		M.AutoInit();
-
-      		//Grayscale function
-      		function doGrayscale(){
-      			var t = document.getElementsByTagName("BODY")[0].style.filter;
-      			if(t == "grayscale(100%)"){document.getElementsByTagName("BODY")[0].style.filter = "grayscale(0%)";}
-  				else{document.getElementsByTagName("BODY")[0].style.filter = "grayscale(100%)";}
-      		}
-
-      		//Search function, returns latitude and longitude
-      		var searchlis = document.getElementById("searchbar");
-      		searchlis.addEventListener("keyup", function(event) {
-			  if (event.keyCode === 13) {
-			  	var rad = document.getElementById("radius").value;
-			    var loc = searchlis.value;
-			    localStorage.setItem( 'rad', rad);
-			    localStorage.setItem( 'loc', loc);
-
-			    var getlatlong = new XMLHttpRequest();
-				getlatlong.onreadystatechange = function() {
-				  if (this.readyState == 4 && this.status == 200) {
-				    var jsonstor = JSON.parse(this.responseText);
-				    var temp = jsonstor['results']['0']['locations']['0']['latLng'];
-
-				    var latstor = temp['lat'];
-				    var lngstor = temp['lng'];
-				    localStorage.setItem( 'lat', latstor);
-				    localStorage.setItem( 'lng', lngstor);
-				  }
-				};
-				getlatlong.open("GET", "https://open.mapquestapi.com/geocoding/v1/address?key=h020xslJgKrK3ywDJHnDg6Zs7gQWiVWP&location="+loc, true);
-				getlatlong.send();
-				window.open('content.html', '_blank');
-			  }
-			});
-      	</script>
-	</body>
+   <head>
+      <title>1Community</title>
+      <!-- Compiled and minified CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link rel="stylesheet" type="text/css" href="css.css">
+      <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+      <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+      <script src="https://www.gstatic.com/firebasejs/5.7.3/firebase.js"></script>
+      <!-- Compiled and minified JavaScript -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+   </head>
+   <body>
+      <!--Parallax at top of page-->
+      <div class="parallax">
+         <!-- logo -->
+         <center>
+            <img class="logo" src="logo.png" alt="1Community logo">
+         </center>
+         <!--Typewriter effect-->
+         <p class="typewritebef">Donate to</p>
+         <div>
+            <a href="" class="typewrite" data-period="2000" data-type='[ "Your Neighbour Tyler", "Your Garage Pal Jace", "Your Pilates Mentor Tiffany", "Your Golf Instructor Joy", "Your Beer Buddy Ethan" ]'><span class="wrap"></span></a>
+         </div>
+         <!--Search bar-->
+         <div class="shadow"></div>
+         <p class="searchfir">Search</p>
+         <div class="row" style="position: absolute; top: 36%; left: 21%">
+            <div class="col s12">
+               <div class="input-field col s6">
+                  <input placeholder="XX" type="text" style="color: white; font-size: 48px; font-family: 'Manrope', sans-serif; color:#fff; width: 80px" id="radius">
+               </div>
+            </div>
+         </div>
+         <p class="searchsec">Miles Around</p>
+         <div class="row" style="position: absolute; top: 36%; left: 51%">
+            <div class="col s12">
+               <div class="input-field col s6">
+                  <input placeholder="Name OR Address" type="text" style="color: white; font-size: 48px; font-family: 'Manrope', sans-serif; color:#fff; width: 560px" id="searchbar">
+               </div>
+            </div>
+         </div>
+         <!-- ADD ACCESSIBLITY OPTIONS -->
+         <div class="box boxbackground" style="top: 84%">
+            <center></center>
+         </div>
+         <a onclick="doGrayscale()">
+            <div class="box" style="top: 84%">
+               <center>GrayScale</center>
+            </div>
+         <a>
+            <div class="box boxbackground" style="top: 92%">
+               <center></center>
+            </div>
+         <a href="https://chrome.google.com/webstore/detail/natural-reader-text-to-sp/kohfgcgbkjodfcfkcackpagifgbcmimk/related?hl=en" target="_blank">
+            <div class="box" style="top: 92%">
+               <center>Text-to-Speech</center>
+            </div>
+         </a>
+      </div>
+      <!--Inspirational stories-->
+      <p class="text1"> Stories that inspired us <span style="color: red"> today</span></p>
+      <!--Story 1-->
+      <div style="margin-top: 2%; background-color: #fffef0; padding-top: 2%; height: 400px">
+         <div style="margin-left: 14%">
+            <div style="float: left"><img src="photos/story1.jpg" height="300"></div>
+            <div style="margin-left: 48%; margin-right: 14%; line-height: 1.8">
+               <p style="color: black; font-size: 30px; font-weight: bold"> Paid Sick Leave - Ottawa </p>
+               <p style="color: black; font-size: 16px"> Ottawa construction workers Danny and Frank work at a company without sick leave pays. Now they are worried that they have no cushion to fall back on in case the flu - or worse still the virus - forces them to stay home. 1Community helped promote their campaign to raise over $6,000 from their local community, ensuring that their livelihoods aren't at stake because they are practicing good social distancing for the rest of us.</p>
+            </div>
+         </div>
+      </div>
+      <!--Story 2-->
+      <div style="margin-top: 1%; padding-top: 2%; height: 400px">
+         <div style="margin-left: 14%">
+            <div style="float: left; line-height: 1.8; width: 40%; padding-right: 3%">
+               <p style="color: black; font-size: 30px; font-weight: bold"> Better Respirators - Shanghai </p>
+               <p style="color: black; font-size: 16px"> Health workers in Shanghai face a severe shortage of respirators as the number of coronavirus cases skyrocket. With the help of residents on both the west and east side of the metropolitan, healthworkers raised ¥40,000 through 1Community and saw a significant boost in local medical supplies. On top of respirators, they also used this fund to acquire surgical masks in smaller quantities.</p>
+            </div>
+            <div style="float: left; width: 50%; margin-top: 1.2%; padding-left: 3%"><img src="photos/story2.jpg" height="300"></div>
+         </div>
+      </div>
+      <script type="text/javascript" src="js.js"></script>
+      <script>
+         M.AutoInit();
+         
+         //Grayscale function
+         function doGrayscale(){
+         	var t = document.getElementsByTagName("BODY")[0].style.filter;
+         	if(t == "grayscale(100%)"){document.getElementsByTagName("BODY")[0].style.filter = "grayscale(0%)";}
+         else{document.getElementsByTagName("BODY")[0].style.filter = "grayscale(100%)";}
+         }
+         
+         //Search function, returns latitude and longitude
+         var searchlis = document.getElementById("searchbar");
+         searchlis.addEventListener("keyup", function(event) {
+         if (event.keyCode === 13) {
+         var rad = document.getElementById("radius").value;
+         var loc = searchlis.value;
+         localStorage.setItem( 'rad', rad);
+         localStorage.setItem( 'loc', loc);
+         
+         var getlatlong = new XMLHttpRequest();
+         getlatlong.onreadystatechange = function() {
+         if (this.readyState == 4 && this.status == 200) {
+         var jsonstor = JSON.parse(this.responseText);
+         var temp = jsonstor['results']['0']['locations']['0']['latLng'];
+         
+         var latstor = temp['lat'];
+         var lngstor = temp['lng'];
+         localStorage.setItem( 'lat', latstor);
+         localStorage.setItem( 'lng', lngstor);
+         }
+         };
+         getlatlong.open("GET", "https://open.mapquestapi.com/geocoding/v1/address?key=h020xslJgKrK3ywDJHnDg6Zs7gQWiVWP&location="+loc, true);
+         getlatlong.send();
+         window.open('content.html', '_blank');
+         }
+         });
+      </script>
+   </body>
 </html>
