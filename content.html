@@ -1,282 +1,205 @@
 <!DOCTYPE html>
 <html>
-
-	<head>
-		<title>1Community</title>
-		<!-- Compiled and minified CSS -->
-	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-	    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	    <!-- Compiled and minified JavaScript -->
-	    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-		<link rel="stylesheet" type="text/css" href="css.css">
-	    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
-		<link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
-	    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
-   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-   crossorigin=""/>
-	 	<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
-	   integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-	   crossorigin=""></script>
-   <link rel="stylesheet" href="leaflet.awesome-markers.css">
-   <script src="leaflet.awesome-markers.js"></script>
-   		<style type="text/css">
-   			p{
-   				color: black;
-   			}
-   		</style>
-	</head>
-
-	<body style="background-color: #fffef0">
-
-		<!--Navbar-->
-		  <nav class="lighten-2 nav-extended">
-		  	<!--Logo & link-->
-		    <div class="nav-wrapper" style="height: 100px; background-color: white">
-		      <a href="index.html" class="brand-logo center"><img src="logoalt.png" style="width: 90px; margin-top: 4%"></a>
-		      <ul id="nav-mobile" class="right hide-on-med-and-down" style="margin-right: 12%">
-			        <li><a href="upload.html" style="color: black; height: 100px; width: 120px; text-align: center; padding-top: 1px; font-size: 18px"><p>upload</p></a></li>
-			    </ul>
-		    </div>
-		    <div>
-		    	<!--Tabs-->
-			      <ul class="tabs tabs-transparent tabs-fixed-width" style="background-color: #ffba66">
-			        <li class="tab"><a class="active"href="#map">Map</a></li>
-			        <li class="tab"><a href="#fundraisers">Fundraisers</a></li>
-			      </ul>
-		    </div>
-		  </nav>
-
-			<p id="num" class="style1" style="margin-left: 10%; color: orange"></p>
-		  	<p class="style1">Fundraisers Returned within</p>
-		  	<p id="radnum" class="style1" style="color: orange"></p>
-		  	<p class="style1">miles around</p>
-		  	<p id="locnum" class="style1" style="color: orange"></p>
-
-		  <!--Map tab-->
-		  <div id="map">
-		  	<!--Leaflet JS map-->
-		  	<center><div id="mapid" style="margin-top: 2%; margin-bottom: 50px"></div></center>
-		  </div>
-
-		  <!--Fundraiser tab-->
-		  <div id="fundraisers" class="col s12">
-
-			  <div class="row" style="margin-left: 20px; margin-right: 20px">
-
-			    <div class="col s12 m4">
-			      <div class="card">
-			      	<center>
-			      	  <div class="chip" style="margin-top: 1%; margin-left: 1%">Hospital</div>
-					  <div class="chip">Children</div>
-					  <div class="chip">$4000</div>
-					</center>
-			        <div class="card-image">
-			          <img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/fundraising-help-flyer-template-b50e36c0bd09d10dfede2360ac6f5a6f_screen.jpg?ts=1561498598" height="295" style="object-fit: none;" >
-			          <span class="card-title" style="color: black">Raising Funds for Local Hospital</span>
-			        </div>
-			        <div class="card-content">
-			        	<p style="font-size: 24px">Etobicoke, CA</p>
-			          <p>Short Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, </p>
-			        </div>
-			        <div class="card-action">
-			          <a href="#">Donate to My Fundraiser</a>
-			        </div>
-			      </div>
-			    </div>
-
-			    <div class="col s12 m4">
-			      <div class="card">
-			      	<center>
-			      	  <div class="chip" style="margin-top: 1%; margin-left: 1%">Funeral</div>
-					  <div class="chip">#StrandStrong</div>
-					  <div class="chip">$2000</div>
-					</center>
-			        <div class="card-image">
-			          <img src="https://images.unsplash.com/photo-1573935146153-f6322e84d1e4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80">
-			          <span class="card-title">In Memory of Stephanie Doe</span>
-			        </div>
-			        <div class="card-content">
-			          <p style="font-size: 24px">Toronto, CA</p>
-			          <p>Short Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, </p>
-			        </div>
-			        <div class="card-action">
-			          <a href="#">Donate to My Fundraiser</a>
-			        </div>
-			      </div>
-			    </div>
-
-			    <div class="col s12 m4">
-			      <div class="card">
-			      	<center>
-			      	  <div class="chip" style="margin-top: 1%; margin-left: 1%">Social</div>
-					  <div class="chip">>20 people</div>
-					  <div class="chip">Indigenous</div>
-					</center>
-			        <div class="card-image">
-			          <img src="https://s.yimg.com/uu/api/res/1.2/DdytqdFTgtQuxVrHLDdmjQ--~B/aD03MTY7dz0xMDgwO3NtPTE7YXBwaWQ9eXRhY2h5b24-/https://media-mbst-pub-ue1.s3.amazonaws.com/creatr-uploaded-images/2019-11/7b5b5330-112b-11ea-a77f-7c019be7ecae">
-			          <span class="card-title">Protect my Village</span>
-			        </div>
-			        <div class="card-content">
-			        	<p style="font-size: 24px">Toronto, CA</p>
-			          <p>Short Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, </p>
-			        </div>
-			        <div class="card-action">
-			          <a href="#">Donate to My Fundraiser</a>
-			        </div>
-			      </div>
-			    </div>
-
-			    <div class="row" style="margin-left: 1px; margin-right: 1px">
-
-				    <div class="col s12 m4">
-				      <div class="card">
-				      	<center>
-				      	  <div class="chip" style="margin-top: 1%; margin-left: 1%">Disability</div>
-						  <div class="chip">Single Parent Family</div>
-						  <div class="chip">Education</div>
-						</center>
-				        <div class="card-image">
-				          <img src="https://i.ytimg.com/vi/pTcJfgyVVp0/maxresdefault.jpg" height="295" style="object-fit: none;" >
-				          <span class="card-title">Online Education for Child with Disability</span>
-				        </div>
-				        <div class="card-content">
-				        	<p style="font-size: 24px">North York, CA</p>
-				          <p>Short Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, </p>
-				        </div>
-				        <div class="card-action">
-				          <a href="#">Donate to My Fundraiser</a>
-				        </div>
-				      </div>
-				    </div>
-
-				    <div class="col s12 m4">
-				      <div class="card">
-				      	<center>
-				      	  <div class="chip" style="margin-top: 1%; margin-left: 1%">Student</div>
-						  <div class="chip">Part Time Job</div>
-						  <div class="chip">Education Loan</div>
-						</center>
-				        <div class="card-image">
-				          <img src="https://api.time.com/wp-content/uploads/2019/09/debt-snowball-method.jpg" height="295" style="object-fit: none;" >
-				          <span class="card-title">$50 Away From not Being Able to Pay Off Debt</span>
-				        </div>
-				        <div class="card-content">
-				          <p style="font-size: 24px">Markham, CA</p>
-				          <p>Short Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, </p>
-				        </div>
-				        <div class="card-action">
-				          <a href="#">Donate to My Fundraiser</a>
-				        </div>
-				      </div>
-				    </div>
-
-				    <div class="col s12 m4">
-				      <div class="card">
-				      	<center>
-				      	  <div class="chip" style="margin-top: 1%; margin-left: 1%">Fencer</div>
-						  <div class="chip">Family of 4</div>
-						  <div class="chip">Immigrant</div>
-						</center>
-				        <div class="card-image">
-				          <img src="https://bloximages.newyork1.vip.townnews.com/collegian.psu.edu/content/tncms/assets/v3/editorial/3/98/3989c298-0829-11e6-adaf-efd4db2e34ed/57197dbf53491.image.jpg?resize=400%2C268">
-				          <span class="card-title">Fencer in Need of Assistance</span>
-				        </div>
-				        <div class="card-content">
-				        	<p style="font-size: 24px">Ajax, CA</p>
-				          <p>Short Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, </p>
-				        </div>
-				        <div class="card-action">
-				          <a href="#">Donate to My Fundraiser</a>
-				        </div>
-				      </div>
-			    	</div>
-				</div>
-			  </div>
-			</div>
-
-
-	   <script src="https://www.gstatic.com/firebasejs/5.7.3/firebase.js"></script>
-   		<script type="text/javascript" src="js.js"></script>
-      	<script>
-
-      		var lat = parseFloat(localStorage['lat']);
-  			var lng = parseFloat(localStorage['lng']);
-  			var rad = parseFloat(localStorage['rad'])*1.60934;
-
-      		//Map attributes
-      		var mymap = L.map('mapid').setView([lat, lng], 10);
-      		L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-				maxZoom: 18,
-				attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-					'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-					'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-				id: 'mapbox/streets-v11',
-				tileSize: 512,
-				zoomOffset: -1
-			}).addTo(mymap);
-			var initMarker = L.AwesomeMarkers.icon({
-			    markerColor: 'white'
-			  });
-			L.marker([lat, lng], {icon: initMarker}).addTo(mymap).bindPopup("You!").openPopup()
-
-		var firebaseConfig = {
-            piKey: "AIzaSyCcw96huCdBfDqlxOADqtJbPtQbOlAwquA",
-		    authDomain: "unit3project.firebaseapp.com",
-		    databaseURL: "https://unit3project.firebaseio.com",
-		    projectId: "unit3project",
-		    storageBucket: "unit3project.appspot.com",
-		    messagingSenderId: "420038856149",
-		    appId: "1:420038856149:web:230f6e4196b949fa29815c",
-		    measurementId: "G-TJ980KD3NZ"
-        };
-        firebase.initializeApp(firebaseConfig);
-
-        Number.prototype.toRad = function() {
-		   return this * Math.PI / 180;
-		}
-
-		var fundMarker = L.AwesomeMarkers.icon({
-			    markerColor: 'orange'
-			  });
-
-		var count = 0;
-        setTimeout(function(){
-      			var query = firebase.database().ref("fundraiser").orderByKey();
-		        query.once("value")
-		            .then(function(snapshot) {
-		                snapshot.forEach(function(childSnapshot) {
-		                    var latfund = parseFloat(childSnapshot.child("latitude").val());
-							var lngfund = parseFloat(childSnapshot.child("longitude").val());
-
-							var R = 6371;
-							var x1 = latfund-lat;
-							var dLat = x1.toRad();  
-							var x2 = lngfund-lng;
-							var dLon = x2.toRad();  
-							var a = Math.sin(dLat/2) * Math.sin(dLat/2) + 
-							                Math.cos(lat.toRad()) * Math.cos(latfund.toRad()) * 
-							                Math.sin(dLon/2) * Math.sin(dLon/2);  
-							var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
-							var d = R * c; 
-							
-							if(rad >= d){
-								var titlevar = childSnapshot.child("title").val();
-								L.marker([latfund, lngfund], {icon: fundMarker}).addTo(mymap)
-									.bindPopup(titlevar);
-								count++;
-							}
-		                });
-						document.getElementById('num').innerHTML = count;
-  						document.getElementById('radnum').innerHTML = localStorage['rad'];
-  						document.getElementById('locnum').innerHTML = localStorage['loc'];
-
-		            });
-
-
-      		 //alert(lat+" "+lng); 
-      		}, 500);
-		
-      		M.AutoInit();
-      	</script>
-	</body>
+   <head>
+      <title>1Community</title>
+      <!-- Compiled and minified CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!-- Compiled and minified JavaScript -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="css.css">
+      <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+      <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+         integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+         crossorigin=""/>
+      <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+         integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+         crossorigin=""></script>
+      <link rel="stylesheet" href="leaflet.awesome-markers.css">
+      <script src="leaflet.awesome-markers.js"></script>
+      <style type="text/css">
+         p{
+         color: black;
+         }
+      </style>
+   </head>
+   <body style="background-color: #fffef0">
+      <!--Navbar-->
+      <nav class="lighten-2 nav-extended">
+         <!--Logo & link-->
+         <div class="nav-wrapper" style="height: 100px; background-color: white">
+            <a href="index.html" class="brand-logo center"><img src="logoalt.png" style="width: 90px; margin-top: 4%"></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down" style="margin-right: 12%">
+               <li>
+                  <a href="upload.html" style="color: black; height: 100px; width: 120px; text-align: center; padding-top: 1px; font-size: 18px">
+                     <p>upload</p>
+                  </a>
+               </li>
+            </ul>
+         </div>
+         <div>
+            <!--Tabs-->
+            <ul class="tabs tabs-transparent tabs-fixed-width" style="background-color: #ffba66">
+               <li class="tab"><a class="active"href="#map">Map</a></li>
+               <li class="tab"><a href="#fundraisers">Fundraisers</a></li>
+            </ul>
+         </div>
+      </nav>
+      <p id="num" class="style1" style="margin-left: 10%; color: orange"></p>
+      <p class="style1">Fundraisers Returned within</p>
+      <p id="radnum" class="style1" style="color: orange"></p>
+      <p class="style1">miles around</p>
+      <p id="locnum" class="style1" style="color: orange"></p>
+      <!--Map tab-->
+      <div id="map">
+         <!--Leaflet JS map-->
+         <center>
+            <div id="mapid" style="margin-top: 2%; margin-bottom: 50px"></div>
+         </center>
+      </div>
+      <!--Fundraiser tab-->
+      <div id="fundraisers" class="col s12">
+      </div>
+      <script src="https://www.gstatic.com/firebasejs/5.7.3/firebase.js"></script>
+      <script type="text/javascript" src="js.js"></script>
+      <script>
+         var lat = parseFloat(localStorage['lat']);
+         var lng = parseFloat(localStorage['lng']);
+         var rad = parseFloat(localStorage['rad'])*1.60934;
+         
+         //Map attributes
+         var mymap = L.map('mapid').setView([lat, lng], 10);
+         L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+         maxZoom: 18,
+         attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+         '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+         'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+         id: 'mapbox/streets-v11',
+         tileSize: 512,
+         zoomOffset: -1
+         }).addTo(mymap);
+         var initMarker = L.AwesomeMarkers.icon({
+         markerColor: 'white'
+         });
+         L.marker([lat, lng], {icon: initMarker}).addTo(mymap).bindPopup("You!").openPopup()
+         
+         var firebaseConfig = {
+             piKey: "AIzaSyCcw96huCdBfDqlxOADqtJbPtQbOlAwquA",
+         authDomain: "unit3project.firebaseapp.com",
+         databaseURL: "https://unit3project.firebaseio.com",
+         projectId: "unit3project",
+         storageBucket: "unit3project.appspot.com",
+         messagingSenderId: "420038856149",
+         appId: "1:420038856149:web:230f6e4196b949fa29815c",
+         measurementId: "G-TJ980KD3NZ"
+         };
+         firebase.initializeApp(firebaseConfig);
+         
+         Number.prototype.toRad = function() {
+         return this * Math.PI / 180;
+         }
+         
+         var fundMarker = L.AwesomeMarkers.icon({
+         markerColor: 'orange'
+         });
+         
+         var count = 0;
+         var switchrow = 0;
+         var tocontent = "<div class='rowstyle'>";
+         setTimeout(function(){
+         	var query = firebase.database().ref("fundraiser").orderByKey();
+           query.once("value")
+               .then(function(snapshot) {
+                   snapshot.forEach(function(childSnapshot) {
+                       var latfund = parseFloat(childSnapshot.child("latitude").val());
+         var lngfund = parseFloat(childSnapshot.child("longitude").val());
+         
+         var R = 6371;
+         var x1 = latfund-lat;
+         var dLat = x1.toRad();  
+         var x2 = lngfund-lng;
+         var dLon = x2.toRad();  
+         var a = Math.sin(dLat/2) * Math.sin(dLat/2) + 
+                        Math.cos(lat.toRad()) * Math.cos(latfund.toRad()) * 
+                        Math.sin(dLon/2) * Math.sin(dLon/2);  
+         var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+         var d = R * c; 
+         
+         if(rad >= d){
+         var titlevar = childSnapshot.child("title").val();
+         L.marker([latfund, lngfund], {icon: fundMarker}).addTo(mymap)
+         	.bindPopup(titlevar);
+         count++;
+         
+         var imagename = childSnapshot.child("image").val();
+         var imagevar = "";
+         var storageRef = firebase.storage().ref('images/');
+          		storageRef.child(imagename).getDownloadURL().then(function(url) {
+           var xhr = new XMLHttpRequest();
+           xhr.responseType = 'blob';
+           xhr.onload = function(event) {
+             var blob = xhr.response;
+           };
+           xhr.open('GET', url);
+           xhr.send();
+         
+         	  imagevar = url;	
+         
+         	  var locationvar = childSnapshot.child("location").val();
+         	  var descriptionvar = childSnapshot.child("description").val();
+         	  var linkvar = childSnapshot.child("link").val();
+         
+         
+         	  if(switchrow == 3){
+         	  	switchrow = 0;
+         	  }
+         
+         	  if(switchrow == 0){
+         	  	tocontent += "<div class='row'>"
+         	  }
+         
+         	  tocontent +=
+         	  	`<div class="col s12 m4">
+               <div class="card" style="width: 100%">
+                 <div class="card-image">
+                   <img src="`+imagevar+`" height=400px style="object-fit: none;">
+                   <span class="card-title">`+titlevar+`</span>
+                 </div>
+                 <div class="card-content">
+                   <p style="font-size: 24px">`+locationvar+`</p>
+                   <p>`+descriptionvar+` </p>
+                 </div>
+                 <div class="card-action">
+                   <a href="`+linkvar+`">Donate to My Fundraiser</a>
+                 </div>
+               </div>
+             </div>`
+         
+             if(switchrow == 2){
+         	  		tocontent.innerHTML += "<div>"
+         	  	}
+         	  	switchrow++;
+         	//console.log(fundraisers.innerHTML);
+         	document.getElementById('fundraisers').innerHTML = tocontent+"</div>";
+         }).catch(function(error) {
+         	console.log("error while retrieving image");
+         });
+         }
+                   });
+         document.getElementById('num').innerHTML = count;
+         document.getElementById('radnum').innerHTML = localStorage['rad'];
+         document.getElementById('locnum').innerHTML = localStorage['loc'];
+               });
+         
+         
+          //alert(lat+" "+lng); 
+         }, 500);
+         	setTimeout(function(){
+         		
+         	}, 3000);
+         
+         M.AutoInit();
+      </script>
+   </body>
 </html>
